@@ -12,7 +12,7 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE
-        display-wd-windows:
+    display-wd-windows:
         runs-on: windows-latest
         steps:
             - name: Displaying the working directory & list files
