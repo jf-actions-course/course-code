@@ -1,5 +1,11 @@
 name: Repo Events
-on: [push, pull_request, issues]
+#on: [push, pull_request, issues] This is an array of events
+on:
+  push:
+  pull_request:
+    types: [opened, assigned, reopened, synchronize]
+  issues:
+    types: [opened, reopened]
 
 jobs:
   checkout-test:
