@@ -2,11 +2,29 @@ name: Repo Events
 #on: [push, pull_request, issues] This is an array of events
 on:
   push:
+    branches:
+      - main
+      #- "feature/*" This will match against any branch that starts with feature/
+      #- "feature/**" This will match against any branch that starts with feature/name/name2
+      #- "!feature/ignore" This will ignore any branch that matches the pattern. This should be last.
+    #branches-ignore: This will ignore any branches that match the pattern.
+                      #This cannot be used with above branches
+      #- "develop"
+    # tags: |
+    #   - v1.* #This will match against any tag that starts with v1.
+    #   - '!v1.1.1' #This will ignore any tag that matches the pattern. This should be last.
+    # paths: #This will only trigger the workflow if the files are in the correct path
+    #   - 'src/*'
+    #   - '!docs/*'
   pull_request:
     types: [opened, assigned, reopened, synchronize]
+    branches:
+      - main
   issues:
     types: [opened]
 
+    branches:
+      - main
 jobs:
   checkout-test:
     runs-on: ubuntu-latest
