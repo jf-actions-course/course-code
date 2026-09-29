@@ -1,0 +1,10 @@
+name: Manually Triggered Workflow
+on:
+  workflow_dispatch:
+jobs:
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log Information
+        run: |
+          echo "This workflow was triggered manually. ${{ github.ref }}"
